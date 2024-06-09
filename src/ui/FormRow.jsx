@@ -44,6 +44,7 @@ function FormRow({ label, error, children }) {
       {error && <Error>{error}</Error>}
     </StyledFormRow>
   );
+  s;
 }
 
 export default FormRow;

@@ -18,7 +18,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
 
 const queryClient = new QueryClient({
-  defaultOptions: { queries: { staleTime: 0, cacheTime: 1000 } },
+  defaultOptions: { queries: { staleTime: 0, gcTime: 1000 } },
 });
 
 function App() {
