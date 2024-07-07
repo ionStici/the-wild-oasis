@@ -20,7 +20,7 @@ const HeadingGroup = styled.div`
 `;
 
 function BookingDetail() {
-  const { navigate } = useNavigate();
+  const navigate = useNavigate();
   const { booking, isPending } = useBooking();
 
   const moveBack = useMoveBack();
