@@ -20,7 +20,6 @@ function Sidebar() {
       <Logo />
       <MainNav />
 
-      {/* TEMP */}
       <Uploader />
     </StyledSidebar>
   );
