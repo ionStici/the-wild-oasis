@@ -1,5 +1,7 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 
+import DarkModeProvider from "./contexts/DarkModeContext";
+
 import GlobalStyles from "./styles/GlobalStyles";
 
 import Login from "./pages/Login";
@@ -7,7 +9,7 @@ import PageNotFound from "./pages/PageNotFound";
 
 export default function App() {
   return (
-    <>
+    <DarkModeProvider>
       <GlobalStyles />
 
       <BrowserRouter>
@@ -16,6 +18,6 @@ export default function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </DarkModeProvider>
   );
 }
