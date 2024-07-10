@@ -1,13 +1,13 @@
-import styled from 'styled-components';
-import { formatCurrency } from '../../utils/helpers';
-import CreateCabinForm from './CreateCabinForm';
-import { useDeleteCabin } from './useDeleteCabin';
-import { HiPencil, HiSquare2Stack, HiTrash } from 'react-icons/hi2';
-import { useCreateCabin } from './useCreateCabin';
-import Modal from '../../ui/Modal';
-import ConfirmDelete from '../../ui/ConfirmDelete';
-import Table from '../../ui/Table';
-import Menus from '../../ui/Menus';
+import styled from "styled-components";
+import { formatCurrency } from "../../utils/helpers";
+import CreateCabinForm from "./CreateCabinForm";
+import { useDeleteCabin } from "./useDeleteCabin";
+import { HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
+import { useCreateCabin } from "./useCreateCabin";
+import Modal from "../../ui/Modal";
+import ConfirmDelete from "../../ui/ConfirmDelete";
+import Table from "../../ui/Table";
+import Menus from "../../ui/Menus";
 
 const Img = styled.img`
   display: block;
@@ -22,16 +22,16 @@ const Cabin = styled.div`
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--color-grey-600);
-  font-family: 'Sono';
+  font-family: "Sono";
 `;
 
 const Price = styled.div`
-  font-family: 'Sono';
+  font-family: "Sono";
   font-weight: 600;
 `;
 
 const Discount = styled.div`
-  font-family: 'Sono';
+  font-family: "Sono";
   font-weight: 500;
   color: var(--color-green-700);
 `;
@@ -78,7 +78,11 @@ function CabinRow({ cabin }) {
             <Menus.Toggle id={cabinId} />
 
             <Menus.List id={cabinId}>
-              <Menus.Button icon={<HiSquare2Stack />} onClick={handleDuplicate}>
+              <Menus.Button
+                icon={<HiSquare2Stack />}
+                onClick={handleDuplicate}
+                disabled={isCreating}
+              >
                 Duplicate
               </Menus.Button>
 
