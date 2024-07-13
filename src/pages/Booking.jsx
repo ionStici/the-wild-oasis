@@ -1,3 +1,7 @@
-export default function Booking() {
-  return <div>Booking</div>;
+import BookingDetail from '../features/bookings/BookingDetail';
+
+function Booking() {
+  return <BookingDetail />;
 }
+
+export default Booking;

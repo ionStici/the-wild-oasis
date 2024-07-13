@@ -1,19 +1,17 @@
-import Form from "../../ui/Form";
+import { useState } from "react";
 import Button from "../../ui/Button";
+import Form from "../../ui/Form";
 import Input from "../../ui/Input";
 import FormRowVertical from "../../ui/FormRowVertical";
+import { useLogin } from "./useLogin";
 import SpinnerMini from "../../ui/SpinnerMini";
 
-import { useState } from "react";
-import { useLogin } from "./useLogin";
-
-export default function LoginForm() {
-  const [email, setEmail] = useState("guest@email.com");
-  const [password, setPassword] = useState("12345678");
-
+function LoginForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { login, isPending } = useLogin();
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
     if (!email || !password) return;
     login(
@@ -25,7 +23,7 @@ export default function LoginForm() {
         },
       }
     );
-  };
+  }
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -33,9 +31,10 @@ export default function LoginForm() {
         <Input
           type="email"
           id="email"
+          // This makes this form better for password managers
           autoComplete="username"
           value={email}
-          onChange={({ target }) => setEmail(target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           disabled={isPending}
         />
       </FormRowVertical>
@@ -45,15 +44,17 @@ export default function LoginForm() {
           id="password"
           autoComplete="current-password"
           value={password}
-          onChange={({ target }) => setPassword(target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           disabled={isPending}
         />
       </FormRowVertical>
       <FormRowVertical>
         <Button size="large" disabled={isPending}>
-          {!isPending ? "Log in" : <SpinnerMini />}
+          {!isPending ? "Login" : <SpinnerMini />}
         </Button>
       </FormRowVertical>
     </Form>
   );
 }
+
+export default LoginForm;
